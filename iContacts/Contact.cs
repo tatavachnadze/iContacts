@@ -6,25 +6,29 @@ using System.Threading.Tasks;
 
 namespace iContacts
 {
-    internal class Contact
+    public class Contact
     {
-        public Contact(int id, string firstName, string lastName, string age, string email, string phone)
+        public Contact(string firstName, string lastName, DateOnly birthdate, string email, string phone)
         {
-            ID = id;
-            FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));            
-            Age = age;
-            Email = email ?? throw new ArgumentNullException(nameof(email));
-            Phone = phone ?? throw new ArgumentNullException(nameof(phone));
+           
+            FirstName = firstName;
+            LastName = lastName;            
+            BirthDate = birthdate;
+            Email = email;
+            Phone = phone;
         }
 
-        public int ID { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Address { get; private set; }
-        public string Age { get; private set; }
-        public string Email { get; private set; }
-        public string Phone { get; private set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public DateOnly BirthDate { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
 
+        public override string ToString()
+        {
+            return "FirstName: "+FirstName+"\nLastName: " +LastName+"\nBirthDate: "+ BirthDate+"\nEmail: " + Email+"\nPhone: " + Phone;
+        }
     }
 }

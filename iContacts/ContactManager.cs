@@ -6,29 +6,39 @@ using System.Threading.Tasks;
 
 namespace iContacts
 {
-    internal class ContactManager
+    public class ContactService
     {
         private List<Contact> _contacts = new List<Contact>();
-        public ContactManager()
+        public ContactService()
         {
             _contacts = new List<Contact>();
         }
 
-        public static int Count { get; set; }
-
+       
+        public void New(Contact contact)
+        {
+            _contacts.Add(contact);
+        }
         
 
-        public void View()
+        public Contact View(int id)
         {
-
+            foreach (Contact contact in _contacts)
+            {
+                if (contact.Id == id)
+                {
+                    return contact;
+                }              
+            }
+            throw new ArgumentException("ID does not exist in iContacts");
         }
 
-        public void Edit(Contact contact)
+        public void Update(int id, Contact contact)
         {
-            if (contact == null) throw new ArgumentNullException(nameof(contact));
+            
             for (int i = 0; i < _contacts.Count; i++)
             {
-                if (_contacts[i].ID.Equals(contact.ID))
+                if (i == id)
                 {
                     _contacts[i] = contact;
                 }
