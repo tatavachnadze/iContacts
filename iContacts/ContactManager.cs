@@ -30,7 +30,7 @@ namespace iContacts
                     return contact;
                 }              
             }
-            throw new ArgumentException("ID does not exist in iContacts");
+            return null;            
         }
 
         public void Update(int id, Contact contact)
@@ -47,7 +47,7 @@ namespace iContacts
 
         public void Remove(int id)
         {
-            _contacts.Remove(_contacts[id - 1]);
+            _contacts.Remove(_contacts[id]);
         }
     }
 }

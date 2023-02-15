@@ -1,17 +1,19 @@
 ﻿
 namespace iContacts;
-class Program
+class Program : Tests
 {
     static void Main()
     {
-        var contactService = new ContactService();
-        Contact contact = new("Tata", "Vachnadze", new DateOnly(1994,4,27), "tata@gmail.com", "+995");
-        contactService.New(contact);
-        var contact1 = contactService.View(0);
-        Contact contact2 = new("Tata", "Vachnadze", new DateOnly(1994, 4, 27), "tata@gmail.com", "+995599158606");
-        contactService.Update(0, contact2);
-        Console.WriteLine(contact1);
+        Tests test1 = new Tests();
+        
+        var actual1 = new Contact("Tata", "Vachnadze", new DateOnly(1994, 4, 27), "tata@gmail.com", "+995");
+        test1.TestViewMethod(actual1);
+        var actual2 = new Contact("Tata", "Vachnadze", new DateOnly(1994, 4, 27), "tata@gmail.com", "+995599158606");
+        test1.TestUpdateMethod(actual2);
+        test1.TestRemoveMethod();
+      
     }
+
 
     //private static string ReadInput()
     //{

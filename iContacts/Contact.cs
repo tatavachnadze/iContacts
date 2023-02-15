@@ -18,6 +18,27 @@ namespace iContacts
             Phone = phone;
         }
 
+        public override bool Equals(Object obj)
+        {
+            if (!(obj is Contact))
+            {
+                throw new ArgumentException(nameof(obj));
+            }
+           
+            if ((obj as Contact).Id == this.Id
+                && (obj as Contact).FirstName == this.FirstName
+                && (obj as Contact).LastName == this.LastName
+                && (obj as Contact).BirthDate == this.BirthDate
+                && (obj as Contact).Email == this.Email
+                && (obj as Contact).Phone == this.Phone
+                )
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
