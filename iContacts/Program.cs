@@ -1,6 +1,6 @@
 ﻿
 namespace iContacts;
-class Program : Tests
+class Program
 {
     static void Main()
     {
