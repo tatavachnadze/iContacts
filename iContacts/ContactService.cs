@@ -15,8 +15,9 @@ namespace iContacts
         }
 
        
-        public void New(Contact contact)
+        public void New(string firstName, string lastName, DateOnly birthdate, string email, string phone)
         {
+            Contact contact = new(firstName, lastName, birthdate, email, phone);
             _contacts.Add(contact);
         }
         

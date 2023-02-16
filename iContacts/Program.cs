@@ -4,13 +4,7 @@ class Program
 {
     static void Main()
     {
-        Tests test1 = new Tests();
-        
-        var actual1 = new Contact("Tata", "Vachnadze", new DateOnly(1994, 4, 27), "tata@gmail.com", "+995");
-        test1.TestViewMethod(actual1);
-        var actual2 = new Contact("Tata", "Vachnadze", new DateOnly(1994, 4, 27), "tata@gmail.com", "+995599158606");
-        test1.TestUpdateMethod(actual2);
-        test1.TestRemoveMethod();
+        new ContactServiceTests().Run();
       
     }
 
